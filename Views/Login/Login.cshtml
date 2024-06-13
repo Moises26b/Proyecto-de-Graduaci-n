@@ -1,0 +1,46 @@
+﻿@{
+	ViewData["Title"] = "Login";
+}
+
+<section>
+	<div class="contenedor">
+		<div class="formulario">
+			<form method="post" action="/Login/LoginAttempt">
+				<div style="width:10%; float:left; display: flex; align-items: center; height: 800px;"></div>
+				<div style="width:20%; float:left; display: flex; align-items: center; height: 800px;">
+					<h2>Iniciar Sesion</h2>
+				</div>
+				<div style="width:20%; float:left; display: flex; align-items: center; height: 800px;">
+					<div>
+						<div>
+							<div id="UsuarioEncontrado"></div>
+						</div>
+						<div class="mb-3">
+							<label for="username">Username:</label>
+							<input type="text" id="username" name="username" class="form-control" required value="@ViewData["Username"]" />
+						</div>
+						<div class="mb-3">
+							<label for="password">Password: </label>
+							<input type="password" id="password" name="password" class="form-control" required value="@ViewData["password"]" />
+						</div>
+						<button type="submit" class="btn btn-primary mb-3" style="width:auto">Acceder</button>
+						@if (ViewData.ContainsKey("Error"))
+						{
+							<div class="alert alert-danger" role="alert">
+								@ViewData["Error"]
+							</div>
+						}
+					</div>
+				</div>
+			</form>
+
+			<div style="width:20%; float:left; display: flex; align-items: center; height: 800px;">
+				<div class="registrar">
+					<p>No tengo Cuenta<a href="@Url.Action("Registro","Login")"> Crear Una</a> </p>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script src="~/js/LoginScript.js"></script>
