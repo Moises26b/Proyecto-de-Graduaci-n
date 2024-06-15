@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models;
 using System.Diagnostics;
-using VGStore.Models;
-using VGStore.Statics;
+using System.Security.Claims;
+
 
 namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Controllers
 {
@@ -24,6 +26,18 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Controllers
 
         public IActionResult Index()
         {
+            ClaimsPrincipal claimsUser = HttpContext.User;
+            string nombreUsuario = "";
+
+            if (claimsUser.Identity.IsAuthenticated)
+            {
+                nombreUsuario = claimsUser.Claims.Where(c => c.Type == ClaimTypes.Name)
+                    .Select(c => c.Value).SingleOrDefault();
+
+            }
+
+            ViewData["nombreUsuario"] = nombreUsuario;
+
             return View();
         }
 
@@ -36,6 +50,12 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public async Task<IActionResult> CerrarSesion()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("IniciarSesion" , "Login");   
         }
     }
 }

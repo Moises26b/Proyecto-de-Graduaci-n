@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace VGStore.Models
+namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models
 {
     public class Sesion
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Primitives;
 using System.ComponentModel.DataAnnotations;
 
-namespace VGStore.Models
+namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models
 {
 	public class Rol
 	{

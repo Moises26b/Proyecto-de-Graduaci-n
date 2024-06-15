@@ -1,6 +1,6 @@
 ﻿using Microsoft.JSInterop;
 
-namespace VGStore.Models
+namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models
 {
 	public static class CRUD
 	{
@@ -95,11 +95,11 @@ namespace VGStore.Models
 				return db.Sesiones.Where(s => s.IdSesion == id).FirstOrDefault();
 			}
 		}
-		public static List<Sesion> EncontrarSesionPorIdUsuario(int id)
+		public static Sesion EncontrarSesionPorIdUsuario(int id)
 		{
 			using (var db = new ProyectoContext())
 			{
-				return db.Sesiones.Where(s => s.IdUsuario == id).ToList();
+				return db.Sesiones.FirstOrDefault(s => s.IdUsuario == id);
 			}
 		}
 		public static void InsertarSesion(Sesion sesion)

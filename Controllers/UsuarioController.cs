@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using VGStore.Models;
-using VGStore.Statics;
+using Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models;
+using Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Statics;
 
-namespace VGStore.Controllers
+namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Controllers
 {
-    public class UsuarioController : Controller
+	public class UsuarioController : Controller
     {
         private IActionResult InitializeController(Sesion sesion)
 		{

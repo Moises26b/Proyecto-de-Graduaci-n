@@ -1,11 +1,79 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using VGStore.Models;
-using VGStore.Statics;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
+using Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models;
+using Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Services;
+using Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Statics;
+using System.Security.Claims;
 
-namespace VGStore.Controllers
+namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Controllers
 {
 	public class LoginController : Controller
 	{
+		private readonly IUsuarioService _usuarioService;	
+		private readonly ContextoDeUsuario _context;
+
+		public LoginController(IUsuarioService usuarioService, ContextoDeUsuario context)
+		{
+			_usuarioService = usuarioService;
+			_context = context;
+		}
+
+		/*public ActionResult Registro()
+		{
+
+			return View();
+
+		}
+		[HttpPost]	
+		public async Task<IActionResult> Registro (Usuario usuario)
+		{
+			usuario.Pwd = LoginService.EncriptarContraseña(usuario.Pwd);
+
+			Usuario usuarioCreado = await _usuarioService.SaveUsuario(usuario);
+
+			if (usuarioCreado.IdUsuario > 0)
+			{ 
+				return RedirectToAction ("IniciarSesion", "Login");
+			}
+			ViewData["Mensaje"] = "No se pudo crear el Usuario";
+			return View();	
+		}
+
+		public IActionResult Login()
+		{
+			return View();
+		}
+
+		public async Task<IActionResult> Login(string correo, string psw)
+		{
+			Usuario usuarioEncontrado = await _usuarioService.GetUsuario(correo, LoginService.EncriptarContraseña(psw));
+
+			if (usuarioEncontrado == null)
+			{
+				ViewData["Mensaje"] = "Usuario no encontrado";
+				return View();
+			}
+
+			List<Claim> claims = new List<Claim>()
+			{
+				new Claim(ClaimTypes.Name, usuarioEncontrado.Username),
+			};
+
+			ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+			AuthenticationProperties properties = new AuthenticationProperties()
+			{
+				AllowRefresh = true,
+			}
+
+			await HttpContext.SignInAsync(
+				CookieAuthenticationDefaults.AuthenticationScheme,
+				new ClaimsPrincipal(claimsIdentity),
+				properties
+				);
+			return RedirectToAction("Index", "Home");
+		}
+		*/
 		public IActionResult Login()
 		{
 			return View("login2");
@@ -14,7 +82,7 @@ namespace VGStore.Controllers
         {
             return View();
         }
-
+		
         [HttpPost]
 		public string EncontrarUsuario()
 		{
@@ -49,6 +117,7 @@ namespace VGStore.Controllers
 				CRUD.ActualizarUsuario(Usuario);
                 CookieOptions cookieOptions = LoginService.GetCookieOptions();
 				string token = LoginService.CrearSesion(Usuario.IdUsuario);
+
 				HttpContext.Response.Cookies.Append("token", token, cookieOptions);
 				var sesion = CRUD.EncontrarSesionPorGUID(token);
 				var usuario = CRUD.EncontrarUsuarioPorId(sesion.IdUsuario);

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-namespace VGStore.Models
+namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models
 {
 	public class ProyectoContext : DbContext
 	{

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GNt0Zh6/Kl78jhYuYgpbkgnr73ua8P4me9fISjPzY4kRqaGsLbIWMp5wJpZzYkKAjJbsCQq8Dgl1/Ppwlleh/g==",
+  "dgSpecHash": "xLZFVlxfE/fX30WdpYU+kFPx/8zIITSHiZjkRcvj0SXBIvoG43i1u0Hkc7RUTx0z5ZGaBTE3tYPkOYNLU9yfug==",
   "success": true,
-  "projectFilePath": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto de Diseño y Desarrollo de Sistemas\\Proyecto de Diseño y Desarrollo de Sistemas.csproj",
+  "projectFilePath": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\Proyecto de Diseño y Desarrollo de Sistemas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\moise\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\moise\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

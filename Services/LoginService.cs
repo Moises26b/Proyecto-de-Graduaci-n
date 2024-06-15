@@ -1,6 +1,7 @@
-﻿using VGStore.Models;
+﻿using Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models;
 
-namespace VGStore.Statics
+
+namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Statics
 {
     public static class LoginService
     {
@@ -8,17 +9,10 @@ namespace VGStore.Statics
         public static string CrearSesion(int IdUsuario)
         {
             var existeSesion = CRUD.EncontrarSesionPorIdUsuario(IdUsuario);
-            if (existeSesion.Count!=0)
+            if (existeSesion != null)
             {
-                Sesion tempSesion = existeSesion[0];
-                foreach (var session in existeSesion)
-                {
-                    if (session.IdSesion != tempSesion.IdSesion)
-                    {
-                        CRUD.EliminarSesion (session);
-                    }
-                }
-                return tempSesion.IdSesion;
+                
+                return existeSesion.IdSesion;
             }
             var token = Guid.NewGuid().ToString();
             var sesion = new Sesion(token, IdUsuario);

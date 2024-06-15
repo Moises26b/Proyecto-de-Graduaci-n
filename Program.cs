@@ -1,7 +1,36 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models;
+using Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ContextoDeUsuario>(o =>
+{
+    o.UseSqlServer(builder.Configuration.GetConnectionString("CadenaSQL"));
+});
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Login/InisiarSesion";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+});
+
+builder.Services.AddControllersWithViews(options =>
+{
+        options.Filters.Add(
+            new ResponseCacheAttribute
+            { 
+                NoStore = true,
+                Location = ResponseCacheLocation.None,
+            }
+            );
+});
 
 var app = builder.Build();
 
@@ -17,11 +46,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Login}/{id?}");
 
 app.Run();
