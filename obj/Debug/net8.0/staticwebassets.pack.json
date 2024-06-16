@@ -193,8 +193,16 @@
       "PackagePath": "staticwebassets\\font-awesome\\webfonts\\fa-v4compatibility.woff2"
     },
     {
+      "Id": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\wwwroot\\js\\HomeScript.js",
+      "PackagePath": "staticwebassets\\js\\HomeScript.js"
+    },
+    {
       "Id": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\wwwroot\\js\\LoginScript.js",
       "PackagePath": "staticwebassets\\js\\LoginScript.js"
+    },
+    {
+      "Id": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\wwwroot\\js\\VGS.png",
+      "PackagePath": "staticwebassets\\js\\VGS.png"
     },
     {
       "Id": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\wwwroot\\js\\site.js",

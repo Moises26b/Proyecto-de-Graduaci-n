@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "G6DEO8b+p3cBm46mQ52/8yn+6qgJDBYIem6QjTj4EX4=",
+  "Hash": "rnmTBDmM8/0yponwWXHBGw8vqfilQE4hS2Fx2lbUaZE=",
   "Source": "Proyecto de Diseño y Desarrollo de Sistemas",
   "BasePath": "_content/Proyecto de Diseño y Desarrollo de Sistemas",
   "Mode": "Default",
@@ -948,6 +948,25 @@
       "OriginalItemSpec": "wwwroot\\font-awesome\\webfonts\\fa-v4compatibility.woff2"
     },
     {
+      "Identity": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\wwwroot\\js\\HomeScript.js",
+      "SourceId": "Proyecto de Diseño y Desarrollo de Sistemas",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\wwwroot\\",
+      "BasePath": "_content/Proyecto de Diseño y Desarrollo de Sistemas",
+      "RelativePath": "js/HomeScript.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\HomeScript.js"
+    },
+    {
       "Identity": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\wwwroot\\js\\LoginScript.js",
       "SourceId": "Proyecto de Diseño y Desarrollo de Sistemas",
       "SourceType": "Discovered",
@@ -984,6 +1003,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\wwwroot\\js\\VGS.png",
+      "SourceId": "Proyecto de Diseño y Desarrollo de Sistemas",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\wwwroot\\",
+      "BasePath": "_content/Proyecto de Diseño y Desarrollo de Sistemas",
+      "RelativePath": "js/VGS.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\VGS.png"
     },
     {
       "Identity": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

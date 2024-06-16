@@ -4,8 +4,10 @@ using Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Statics;
 
 namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Controllers
 {
+
 	public class RolController : Controller
 	{
+
 		private IActionResult InitializeController(Sesion sesion)
 		{
 			try
@@ -89,8 +91,44 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Controllers
 
 			return RedirectToAction("Listar");
 		}
+        public IActionResult AdministrarRolUsuario(int id)
+        {
+            try
+            {
+                Sesion sesion = CRUD.EncontrarSesionPorGUID(HttpContext.Request.Cookies["token"]);
+                IActionResult result = InitializeController(sesion);
+                if (result != null) { return result; }
 
-		public IActionResult AdministrarRolUsuario(int id)
+                var usuario = CRUD.EncontrarUsuarioPorId(id);
+                if (usuario == null)
+                {
+                    return NotFound(); // Manejar caso donde el usuario no existe
+                }
+
+                var roles = CRUD.ListarTodosLosRoles();
+                ViewData["idUsuario"] = usuario.IdUsuario;
+                ViewData["NombreUsuario"] = usuario.NombreCompleto;
+                ViewData["Correo"] = usuario.Correo;
+                ViewData["UsernameDisplay"] = usuario.Username;
+
+                var rolactual = CRUD.EncontrarRolDeUsuario(id);
+                if (rolactual != null)
+                {
+                    ViewData["rolActual"] = rolactual.IdRol;
+                }
+
+                return View(roles);
+            }
+            catch (Exception ex)
+            {
+                // Registra el error (puede usar cualquier sistema de logging)
+                //_logger.LogError(ex, "Error al administrar rol de usuario.");
+
+                // Muestra una vista de error amigable al usuario
+                return View("Error");
+            }
+        }
+        /*public IActionResult AdministrarRolUsuario(int id)
 		{
 			Sesion sesion = CRUD.EncontrarSesionPorGUID(HttpContext.Request.Cookies["token"]);
 			IActionResult result = InitializeController(sesion);
@@ -107,9 +145,9 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Controllers
 				ViewData["rolActual"] = rolactual.IdRol;
 			}
 			return View(roles);
-		}
+		}*/
 
-		public IActionResult Asignar()
+        public IActionResult Asignar()
 		{
 			Sesion sesion = CRUD.EncontrarSesionPorGUID(HttpContext.Request.Cookies["token"]);
 			IActionResult result = InitializeController(sesion);

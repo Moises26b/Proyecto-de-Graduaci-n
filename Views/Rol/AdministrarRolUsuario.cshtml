@@ -1,0 +1,67 @@
+﻿@{
+	ViewData["Title"] = "Rol de " + ViewData["Username"];
+}
+@{
+	ViewData["Title"] = "Rol";
+}
+@model List<Rol>;
+<body>
+<div class="container-lg">
+	<div class="pt-5">
+
+		<h1 class="py-5">Asignacion de rol</h1>
+		<form method="post" action="/rol/asignar">
+			<div class="d-flex">
+				<div>
+					<p>@ViewData["NombreUsuario"] - <strong>@ViewData["UsernameDisplay"]</strong></p>
+					<p>@ViewData["Correo"]</p>
+					<input type="hidden" name="idUsuario" id="idUsuario" value="@ViewData["idUsuario"]" />
+					<div class="form-group">
+						<label class="pr-3" for="rol">Rol:</label>
+						<select class="btn btn-outline-dark col-md-3" style="width:200px;" id="idRol" name="idRol">
+							<option value="0">Sin rol</option>
+							@{
+								var rolActual = ViewData["rolActual"] != null ? Convert.ToInt32(ViewData["rolActual"]) : -1;
+								foreach (var rol in Model)
+								{
+									var selected = rol.IdRol == rolActual ? "selected" : "";
+									if (selected == "selected")
+									{
+										<option value="@rol.IdRol" selected="@selected">@rol.NombreRol</option>										
+									}
+									else
+									{
+										<option value="@rol.IdRol">@rol.NombreRol</option>
+									}
+									selected="";
+								}
+							}
+						</select>
+						<!--Aqui va a haber un select que muestre como contenidos
+							los roles que se pueden asignar a un usuario, basados
+							en el model. El rol que el usuario tenga seleccionado
+							va a estar en el ViewData["rolActual"]. Si el usuario
+							no tiene roles, rolActual no existira. Por otro lado,
+							si el usuario tiene un rol existente, este se mostrara
+							en el select como el valor seleccionado por defecto.
+						-->
+
+
+					</div>
+				</div>
+				<div class="d-flex align-items-center px-5 ">
+					<div class="btn-group-vertical">
+						<button type="submit" class="btn btn-primary" style="width:100px;">Asignar</button>
+						<a class="btn btn-danger" style="width:100px;" href="/usuario/listusers">
+							Cancelar
+						</a>
+					</div>
+				</div>
+			</div>
+
+
+		</form>
+	</div>
+</div>
+
+</body>

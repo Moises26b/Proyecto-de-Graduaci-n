@@ -12,8 +12,8 @@ using Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models;
 namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations
 {
     [DbContext(typeof(ProyectoContext))]
-    [Migration("20240615171314_Sesiones")]
-    partial class Sesiones
+    [Migration("20240616023926_Roles")]
+    partial class Roles
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

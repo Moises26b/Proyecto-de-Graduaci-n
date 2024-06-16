@@ -12,9 +12,9 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models
 		{
 			if (!optionsBuilder.IsConfigured)
 			{
-				//optionsBuilder.UseSqlServer("Server=localhost\\sqlexpress;Database=VGSTORE;Trusted_Connection=True;TrustServerCertificate=True;");
-				optionsBuilder.UseSqlServer("Server=DESKTOP-8DKT66K;Database=VGSTORE;Trusted_Connection=True;TrustServerCertificate=True;"); //Moises
-                //optionsBuilder.UseSqlServer(@"Server=SQLServer.contoso.com;Database=VGSTORE;User Id=\;Password=;Trusted_Connection=False;TrustServerCertificate=True;Integrated Security=True;");
+				//optionsBuilder.UseSqlServer("Server=localhost\\sqlexpress;Database=Fundacion;Trusted_Connection=True;TrustServerCertificate=True;");
+				optionsBuilder.UseSqlServer("Server=DESKTOP-8DKT66K;Database=Fundacion;Trusted_Connection=True;TrustServerCertificate=True;"); //Moises
+               
             }
 		}
 

@@ -1,0 +1,38 @@
+﻿
+@model List<Usuario>;
+@* @if (Model.Any())
+{ *@
+
+@{
+	ViewData["Title"] = "Usuarios";
+}
+<div class="row row-cols-1 row-cols-md-2 g-4">
+	@foreach (var Usuario in Model)
+	{
+		<div class="col">
+			<div class="card">
+
+				<div class="card-header">
+					@Usuario.NombreCompleto
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">Id: @Usuario.IdUsuario</h5>
+					<p class="card-text">Usuario: @Usuario.Username</p>
+				</div>
+				<div class="card-footer">
+					<a href="@Url.Action("EditUser","Usuario",new{id=Usuario.IdUsuario})" class="btn btn-success">Editar</a>
+					<a href="@Url.Action("DeleteUser","Usuario",new{id=Usuario.IdUsuario})" class="btn btn-danger">Eliminar</a>
+					<a href="@Url.Action("AdministrarRolUsuario","Rol",new{id=Usuario.IdUsuario})" class="btn btn-danger">Rol</a>
+					
+				</div>
+			</div>
+		</div>
+	}
+</div>
+@* }
+else
+{
+	<div class="col">
+		<p>No se encontraron usuarios en este momento</p>
+	</div>
+} *@

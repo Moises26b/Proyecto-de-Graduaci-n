@@ -1,0 +1,28 @@
+﻿@{
+	ViewData["Title"] = "Crear rol";
+}
+<form method="post" action="/Rol/Guardar">
+	<div class="card">
+		<div class="card-header">
+			Nuevo rol
+			<input type="hidden" name="IdRol" id="IdRol" value="" />
+		</div>
+		<div class="card-body">
+			<p class="card-text">Nombre: </p>
+			<input type="text" id="NombreRol" name="NombreRol" class="form-control" required value="" />
+			<p class="card-text">Descripcion: </p>
+			<input type="text" id="Descripcion" name="Descripcion" class="form-control" required value="" />
+			<br />
+			<p class="card-text">Estado: </p>
+			@Html.DropDownList("EstadoRol", new List<SelectListItem>
+			{
+			new SelectListItem { Text = "Activo", Value = "Activo" },
+			new SelectListItem { Text = "Inactivo", Value = "Inactivo" }
+			}, new { @class = "form-control" })
+		</div>
+		<div class="card-footer">
+			<button type="submit" class="btn btn-primary mb-3" style="width:auto">Guardar</button>
+			<a class="btn btn-danger mb-3" style="width:auto" href="/rol/listar">Cancelar</a>
+		</div>
+	</div>
+</form>

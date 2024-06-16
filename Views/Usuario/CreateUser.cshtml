@@ -1,0 +1,72 @@
+﻿@{
+	ViewData["Title"] = "Usuario nuevo";
+}
+
+<form method="post" action="/Usuario/SaveUser">
+	<div class="card">
+		@{
+			if(@Model != null)
+			{
+				<div class="card-header">
+					<input type="hidden" name="id" id="IdUsuario" value="@Model.Id" />
+				</div>
+				<div class="card-body">
+					<p class="card-text">Nombre: </p>
+					<input type="text" id="NombreCompleto" name="nombre" class="form-control" required value="@Model.Nombre" />
+					<p class="card-text">Usuario: </p>
+					<input type="text" id="Username" name="Username" class="form-control" required value="@Model.Username" />
+					<p class="card-text">Edad: </p>
+					<input type="text" id="Edad" name="Edad" class="form-control" required value="@Model.Edad" />
+					<p class="card-text">Correo: </p>
+					<input type="text" id="Correo" name="Correo" class="form-control" required value="@Model.Correo" />
+					<p class="card-text">Domicilio: </p>
+					<input type="text" id="Domicilio" name="Domicilio" class="form-control" required value="@Model.Domicilio" />
+					<p class="card-text">Contraseña: </p>
+					<input type="password" id="pwd" name="password" class="form-control" required value="@Model.Contraseña" />
+					<p class="card-text">Estado: </p>
+					<input type="text" id="EstadoUsuario" name="EstadoUsuario" class="form-control" required value="@Model.EstadoUsuario" />
+					@Html.DropDownList("EstadoUsuario", new List<SelectListItem>
+					{
+					new SelectListItem { Text = "Activo", Value = "Activo" },
+					new SelectListItem { Text = "Inactivo", Value = "Inactivo" }
+					}, new { @class = "form-control" })
+				</div>
+				<div class="card-footer">
+					<button type="submit" class="btn btn-primary mb-3" style="width:auto">Guardar</button>
+					<button type="submit" class="btn btn-danger mb-3" style="width:auto">Cancelar</button>
+				</div>
+			}else{
+				<div class="card-header">
+					Nuevo usuario
+					<input type="hidden" name="id" id="IdUsuario" value="" />
+				</div>
+				<div class="card-body">
+					<p class="card-text">Nombre: </p>
+					<input type="text" id="NombreCompleto" name="nombre" class="form-control" required value="" />
+					<p class="card-text">Usuario: </p>
+					<input type="text" id="Username" name="Username" class="form-control" required value="" />
+					<p class="card-text">Edad: </p>
+					<input type="text" id="Edad" name="Edad" class="form-control" required value="" />
+					<p class="card-text">Correo: </p>
+					<input type="text" id="Correo" name="Correo" class="form-control" required value="" />
+					<p class="card-text">Domicilio: </p>
+					<input type="text" id="Domicilio" name="Domicilio" class="form-control" required value="" />
+					<p class="card-text">Contraseña: </p>
+					<input type="password" id="pwd" name="password" class="form-control" required value="" />
+					<p class="card-text">Estado: </p>
+					@Html.DropDownList("EstadoUsuario", new List<SelectListItem>
+					{
+					new SelectListItem { Text = "Activo", Value = "Activo" },
+					new SelectListItem { Text = "Inactivo", Value = "Inactivo" }
+					}, new { @class = "form-control" })
+				</div>
+				<div class="card-footer">
+					<button type="submit" class="btn btn-primary mb-3" style="width:auto">Guardar</button>
+					<button type="submit" class="btn btn-danger mb-3" style="width:auto">Cancelar</button>
+				</div>
+
+			}
+		}
+
+	</div>
+</form>
