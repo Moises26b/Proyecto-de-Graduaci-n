@@ -9,11 +9,11 @@ using Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models;
 
 #nullable disable
 
-namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations
+namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations.ContextoDeUsuarioMigrations
 {
-    [DbContext(typeof(ProyectoContext))]
-    [Migration("20240616024010_UsuarioRoles")]
-    partial class UsuarioRoles
+    [DbContext(typeof(ContextoDeUsuario))]
+    [Migration("20240619003620_InitialCreateUs")]
+    partial class InitialCreateUs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,22 +46,7 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations
 
                     b.HasKey("IdRol");
 
-                    b.ToTable("Roles");
-                });
-
-            modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Sesion", b =>
-                {
-                    b.Property<string>("IdSesion")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("IdUsuario")
-                        .HasColumnType("int");
-
-                    b.HasKey("IdSesion");
-
-                    b.HasIndex("IdUsuario");
-
-                    b.ToTable("Sesiones");
+                    b.ToTable("Rol");
                 });
 
             modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Usuario", b =>
@@ -108,41 +93,30 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations
 
             modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.UsuarioRol", b =>
                 {
-                    b.Property<int>("IdUsuario")
-                        .HasColumnType("int")
-                        .HasColumnOrder(0);
-
                     b.Property<int>("IdRol")
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
+
+                    b.Property<int>("IdUsuario")
                         .HasColumnType("int");
 
-                    b.HasKey("IdUsuario");
+                    b.HasKey("IdRol");
 
-                    b.HasIndex("IdRol");
+                    b.HasIndex("IdUsuario");
 
-                    b.ToTable("UsuarioRoles");
-                });
-
-            modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Sesion", b =>
-                {
-                    b.HasOne("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("IdUsuario")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Usuario");
+                    b.ToTable("UsuarioRol");
                 });
 
             modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.UsuarioRol", b =>
                 {
                     b.HasOne("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Rol", "Rol")
-                        .WithMany()
+                        .WithMany("UsuarioRoles")
                         .HasForeignKey("IdRol")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Usuario", "Usuario")
-                        .WithMany()
+                        .WithMany("UsuarioRoles")
                         .HasForeignKey("IdUsuario")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -150,6 +124,16 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations
                     b.Navigation("Rol");
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Rol", b =>
+                {
+                    b.Navigation("UsuarioRoles");
+                });
+
+            modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Usuario", b =>
+                {
+                    b.Navigation("UsuarioRoles");
                 });
 #pragma warning restore 612, 618
         }

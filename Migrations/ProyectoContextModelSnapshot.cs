@@ -106,13 +106,13 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations
             modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.UsuarioRol", b =>
                 {
                     b.Property<int>("IdUsuario")
-                        .HasColumnType("int")
-                        .HasColumnOrder(0);
-
-                    b.Property<int>("IdRol")
                         .HasColumnType("int");
 
-                    b.HasKey("IdUsuario");
+                    b.Property<int>("IdRol")
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("IdUsuario", "IdRol");
 
                     b.HasIndex("IdRol");
 
@@ -133,13 +133,13 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations
             modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.UsuarioRol", b =>
                 {
                     b.HasOne("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Rol", "Rol")
-                        .WithMany()
+                        .WithMany("UsuarioRoles")
                         .HasForeignKey("IdRol")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Usuario", "Usuario")
-                        .WithMany()
+                        .WithMany("UsuarioRoles")
                         .HasForeignKey("IdUsuario")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -147,6 +147,16 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations
                     b.Navigation("Rol");
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Rol", b =>
+                {
+                    b.Navigation("UsuarioRoles");
+                });
+
+            modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Usuario", b =>
+                {
+                    b.Navigation("UsuarioRoles");
                 });
 #pragma warning restore 612, 618
         }

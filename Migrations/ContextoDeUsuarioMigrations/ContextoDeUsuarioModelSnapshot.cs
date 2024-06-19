@@ -22,6 +22,30 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations.ContextoDeUsua
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Rol", b =>
+                {
+                    b.Property<int>("IdRol")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRol"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("EstadoRol")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("NombreRol")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdRol");
+
+                    b.ToTable("Rol");
+                });
+
             modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Usuario", b =>
                 {
                     b.Property<int>("IdUsuario")
@@ -62,6 +86,51 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations.ContextoDeUsua
                     b.HasKey("IdUsuario");
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.UsuarioRol", b =>
+                {
+                    b.Property<int>("IdRol")
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
+
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdRol");
+
+                    b.HasIndex("IdUsuario");
+
+                    b.ToTable("UsuarioRol");
+                });
+
+            modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.UsuarioRol", b =>
+                {
+                    b.HasOne("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Rol", "Rol")
+                        .WithMany("UsuarioRoles")
+                        .HasForeignKey("IdRol")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Usuario", "Usuario")
+                        .WithMany("UsuarioRoles")
+                        .HasForeignKey("IdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Rol");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Rol", b =>
+                {
+                    b.Navigation("UsuarioRoles");
+                });
+
+            modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Usuario", b =>
+                {
+                    b.Navigation("UsuarioRoles");
                 });
 #pragma warning restore 612, 618
         }

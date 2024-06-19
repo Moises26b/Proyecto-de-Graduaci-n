@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations
 {
     /// <inheritdoc />
-    public partial class Usuarios : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -68,12 +68,12 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations
                 name: "UsuarioRoles",
                 columns: table => new
                 {
-                    IdUsuario = table.Column<int>(type: "int", nullable: false),
-                    IdRol = table.Column<int>(type: "int", nullable: false)
+                    IdRol = table.Column<int>(type: "int", nullable: false),
+                    IdUsuario = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UsuarioRoles", x => x.IdUsuario);
+                    table.PrimaryKey("PK_UsuarioRoles", x => new { x.IdUsuario, x.IdRol });
                     table.ForeignKey(
                         name: "FK_UsuarioRoles_Roles_IdRol",
                         column: x => x.IdRol,

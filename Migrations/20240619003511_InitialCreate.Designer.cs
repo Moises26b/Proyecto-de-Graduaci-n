@@ -12,8 +12,8 @@ using Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models;
 namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations
 {
     [DbContext(typeof(ProyectoContext))]
-    [Migration("20240616023926_Roles")]
-    partial class Roles
+    [Migration("20240619003511_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -109,13 +109,13 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations
             modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.UsuarioRol", b =>
                 {
                     b.Property<int>("IdUsuario")
-                        .HasColumnType("int")
-                        .HasColumnOrder(0);
-
-                    b.Property<int>("IdRol")
                         .HasColumnType("int");
 
-                    b.HasKey("IdUsuario");
+                    b.Property<int>("IdRol")
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("IdUsuario", "IdRol");
 
                     b.HasIndex("IdRol");
 
@@ -136,13 +136,13 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations
             modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.UsuarioRol", b =>
                 {
                     b.HasOne("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Rol", "Rol")
-                        .WithMany()
+                        .WithMany("UsuarioRoles")
                         .HasForeignKey("IdRol")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Usuario", "Usuario")
-                        .WithMany()
+                        .WithMany("UsuarioRoles")
                         .HasForeignKey("IdUsuario")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -150,6 +150,16 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Migrations
                     b.Navigation("Rol");
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Rol", b =>
+                {
+                    b.Navigation("UsuarioRoles");
+                });
+
+            modelBuilder.Entity("Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models.Usuario", b =>
+                {
+                    b.Navigation("UsuarioRoles");
                 });
 #pragma warning restore 612, 618
         }
