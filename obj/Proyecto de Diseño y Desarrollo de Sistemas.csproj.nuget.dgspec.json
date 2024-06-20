@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\Proyecto de Diseño y Desarrollo de Sistemas.csproj": {}
+    "C:\\Users\\juand\\OneDrive\\Desktop\\Repositorios\\Proyecto-de-Graduaci-n\\Proyecto de Diseño y Desarrollo de Sistemas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\Proyecto de Diseño y Desarrollo de Sistemas.csproj": {
+    "C:\\Users\\juand\\OneDrive\\Desktop\\Repositorios\\Proyecto-de-Graduaci-n\\Proyecto de Diseño y Desarrollo de Sistemas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\Proyecto de Diseño y Desarrollo de Sistemas.csproj",
+        "projectUniqueName": "C:\\Users\\juand\\OneDrive\\Desktop\\Repositorios\\Proyecto-de-Graduaci-n\\Proyecto de Diseño y Desarrollo de Sistemas.csproj",
         "projectName": "Proyecto de Diseño y Desarrollo de Sistemas",
-        "projectPath": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\Proyecto de Diseño y Desarrollo de Sistemas.csproj",
-        "packagesPath": "C:\\Users\\moise\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\obj\\",
+        "projectPath": "C:\\Users\\juand\\OneDrive\\Desktop\\Repositorios\\Proyecto-de-Graduaci-n\\Proyecto de Diseño y Desarrollo de Sistemas.csproj",
+        "packagesPath": "C:\\Users\\juand\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\juand\\OneDrive\\Desktop\\Repositorios\\Proyecto-de-Graduaci-n\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\moise\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\juand\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -94,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

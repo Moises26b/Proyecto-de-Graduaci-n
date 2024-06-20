@@ -13,7 +13,7 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models
 			if (!optionsBuilder.IsConfigured)
 			{
 				//optionsBuilder.UseSqlServer("Server=localhost\\sqlexpress;Database=Fundacion;Trusted_Connection=True;TrustServerCertificate=True;");
-				optionsBuilder.UseSqlServer("Server=DESKTOP-8DKT66K;Database=Fundacion;Trusted_Connection=True;TrustServerCertificate=True;"); //Moises
+				optionsBuilder.UseSqlServer("Server=JuanMH;Database=Fundacion;Trusted_Connection=True;TrustServerCertificate=True;"); //Moises
                
             }
 		}
