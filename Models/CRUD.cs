@@ -239,5 +239,33 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models
 			}
 		}
 
+		// CRUD de Donacion Solo necesita Crear y leer donacion
+		
+		public static List<Donacion> ListarTodasDonaciones()
+		{
+			using (var db = new ProyectoContext())
+			{
+				return db.Donaciones.ToList();
+			}
+		}
+		
+		public static Donacion EncontrarDonacionPorId(int id)
+		{
+			using (var db = new ProyectoContext())
+			{
+				return db.Donaciones.Find(id);
+			}
+		}
+		
+		public static void InsertarDonacion(Donacion donacion)
+		{
+			using (var db = new ProyectoContext())
+			{
+				db.Donaciones.Add(donacion);
+				db.SaveChanges();
+			}
+		}
+		
+
 	}
 }

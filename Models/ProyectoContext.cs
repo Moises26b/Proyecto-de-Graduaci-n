@@ -22,5 +22,6 @@ namespace Proyecto_de_Diseño_y_Desarrollo_de_Sistemas.Models
 		public DbSet<Sesion> Sesiones { get; set; }
 		public DbSet<Rol> Roles { get; set; }
 		public DbSet<UsuarioRol> UsuarioRoles { get; set; }
+		public DbSet<Donacion> Donaciones { get; set; }
 	}
 }
