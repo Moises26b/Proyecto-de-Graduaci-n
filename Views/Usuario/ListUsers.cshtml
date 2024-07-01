@@ -1,4 +1,5 @@
 ﻿
+
 @model List<Usuario>;
 @* @if (Model.Any())
 { *@
@@ -6,6 +7,7 @@
 @{
 	ViewData["Title"] = "Usuarios";
 }
+
 <div class="row row-cols-1 row-cols-md-2 g-4">
 	@foreach (var Usuario in Model)
 	{
