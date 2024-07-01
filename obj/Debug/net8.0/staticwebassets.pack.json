@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Proyecto de Diseño y Desarrollo de Sistemas.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\wwwroot\\css\\registro.css",
+      "PackagePath": "staticwebassets\\css\\registro.css"
+    },
+    {
       "Id": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -201,8 +205,16 @@
       "PackagePath": "staticwebassets\\js\\LoginScript.js"
     },
     {
+      "Id": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\wwwroot\\js\\Registro.js",
+      "PackagePath": "staticwebassets\\js\\Registro.js"
+    },
+    {
       "Id": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\wwwroot\\js\\VGS.png",
       "PackagePath": "staticwebassets\\js\\VGS.png"
+    },
+    {
+      "Id": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\wwwroot\\js\\scripts.js",
+      "PackagePath": "staticwebassets\\js\\scripts.js"
     },
     {
       "Id": "C:\\Users\\moise\\OneDrive\\Escritorio\\Diseño\\Proyecto Fundacion\\wwwroot\\js\\site.js",

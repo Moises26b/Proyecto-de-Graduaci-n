@@ -22,7 +22,7 @@ function sleep(milliseconds) {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
 async function clearAlert(tagPorLimpiar) {
-    await sleep(2000);
+    await sleep(1000);
     $(tagPorLimpiar).text("").removeAttr("class").addClass("error-message");
 }
 

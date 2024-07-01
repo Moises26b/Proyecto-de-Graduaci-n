@@ -1,0 +1,79 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+h2 {
+    color: blueviolet;
+    font: font-weight-bold;
+    font-family:'DejaVu Math TeX Gyre'
+}
+.contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.formulario {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.text-primary {
+    color: #007bff;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: cyan;
+}
+
+    .btn-primary:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+    }
+
+.alert {
+    display: none; /* Inicialmente oculta */
+    margin-top: 10px; /* Espacio sobre la alerta */
+}
+
+.valid-feedback {
+    display: none;
+    color: #28a745;
+}
+
+.invalid-feedback {
+    display: none;
+    color: #dc3545;
+}
+
+.form-control.is-valid,
+.was-validated .form-control:valid {
+    border-color: #28a745;
+}
+
+    .form-control.is-valid ~ .valid-feedback,
+    .was-validated .form-control:valid ~ .valid-feedback {
+        display: block;
+    }
+
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+    border-col
