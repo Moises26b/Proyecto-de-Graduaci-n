@@ -17,7 +17,7 @@
 			<div class="container-fluid">
 				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
 					<ul class="navbar-nav">
-						<a class="navbar-brand" href="#">
+						@* <a class="navbar-brand" href="#">
 							<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOMAAADeCAMAAAD4tEcNAAABR1BMVEX////9tyQOhUP9/////f/8//////3//v3//f78/v/5///7//z6/v8AfCj8uCL5//n///kAfznt9fUAfjIAeTYAdi210MEQhT/n8+uAtZX6uCb+th3///cAgjkRhEP/tST5888AgjLd7OAMiEumx7FKmGifx64AdSdLlmyPu5/3uiL4//T5sgj3v1EAeTkAbh7104Ll+e73043D2c3N6t7u//loqYdgn3n68uf37tj7+eX358T02Y/vzHDvw1L1vjf+tj736LTw3onww1P74Kz536HsvCXzvRn1yXb0v0vzzWL05qj96tP1uTT7/OL27Mn58sT4zonqz3v12KPqwGDu6a7l27LwxUkAbi+v2MN7o4gyi1pinHvz35iStKDe/+9CmmOLyqXt0WvE1Msrk1q5176NyKu7yrw8h1hap3txrpQMf06l1LqNgMARAAARJElEQVR4nO2d/1/ayNbHB2YmGSaQLwIGCCECgggplfJFRVuXq66tXbW37T69Lu3evXfbPnbp///zcyahFqu2VqmGffJ5vbryJWTnzTlzzpnJTEAoVKhQoUKFChUqVKhQoUKFChUqVKhQoUKFChUqVKhQoUKFChUqVKi/sbAM/5Ewwp+EZElCDMl33bBpCcuSJjOtwZX82tr6+sL6+mG/odEYVaS8AP07SAEcLK1tbD58tFWv11VVdX6693hzsJ6n8Zj0NzElbiz8Y7/uupYTUR3HUiMAarnu1vbuUUOR5Jm2pAIdkGg8v7PtAlokB0bM5SKOA6gRkGW59e3dPgWPpfSu23pdESLpjbXNn+uuj2QBnmUJdxWcniz353+sUU0id93W6wpzynZ+Bhs6qhDYUZgOvNS1vBeENXOOtbe5RvW7but1pdBn265lRSKqFVFdN3fv8YMHuzs7u282Vx5ub0GfFG+pEUd9MuB33dbrCCsI5TfrAsOxXOfR841+I697qdHPkHp/sLldh6/AykXc3Eqe6vqsxVjGtMP9upXLWe7W/tN+LAY5/4w0SrnWHzw+UF1wYnd7AZFZqwkU/ssBxJi6e2+nzzGke/mL9hOU1xnhyuHTl5al1h1ng0oXnyqYkiSMN3JWxK2/PGpwYAEiXZOkSWcE7BjOQ3LkysLjiAhCA12fIUPmFTLYcp29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" asp-controller="Home" asp-action="Index" alt="60" width="80" height="50" class="d-inline-block align-text-top">
 						</a>
 
@@ -30,7 +30,7 @@
 							<a class="nav-link text-dark" href="/home/inicio">
 								<i class="bi bi-house-door"></i> Inicio
 							</a>
-						</li>
+						</li> *@
 						@* 						<li class="nav-item">
 						<a class="nav-link text-dark" asp-controller="Usuario" asp-action="ListUsers">
 						<i class="bi bi-people-fill"></i> Usuarios
@@ -46,24 +46,24 @@
 								if ((string)ViewData["rol"] == "ADMIN")
 								{
 
-									<li class="nav-item dropdown" id="AdminActions">
-										<a class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Administracion</a>
-										<ul class="dropdown-menu">
-											<li>
-												<div class="d-flex align-content-center px-2">
-													<i class="bi bi-people-fill pt-1">												</i>
-													<a class="dropdown-item text-dark" href="/usuario/listUsers">Usuarios</a>
-												</div>
-											</li>
-											<li>
-												<div class="d-flex align-content-center px-2">
-													<i class="fa-solid fa-user-tie pt-1"></i>
-													<a class="dropdown-item text-dark" href="/rol/listar">Roles</a>
-												</div>
+									// <li class="nav-item dropdown" id="AdminActions">
+									// 	<a class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Administracion</a>
+									// 	<ul class="dropdown-menu">
+									// 		<li>
+									// 			<div class="d-flex align-content-center px-2">
+									// 				<i class="bi bi-people-fill pt-1">												</i>
+									// 				<a class="dropdown-item text-dark" href="/usuario/listUsers">Usuarios</a>
+									// 			</div>
+									// 		</li>
+									// 		<li>
+									// 			<div class="d-flex align-content-center px-2">
+									// 				<i class="fa-solid fa-user-tie pt-1"></i>
+									// 				<a class="dropdown-item text-dark" href="/rol/listar">Roles</a>
+									// 			</div>
 
-											</li>
-										</ul>
-									</li>
+									// 		</li>
+									// 	</ul>
+									// </li>
 								}
 							}
 						}	
@@ -95,7 +95,7 @@
 
 	<footer class="border-top footer text-muted">
 		<div class="container">
-			&copy; 2024 - Fundacion - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+			Copyright &copy; 2024 - Fundacion - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
 
 		</div>
 

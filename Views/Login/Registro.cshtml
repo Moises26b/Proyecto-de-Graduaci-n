@@ -14,106 +14,109 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link
-    <!-- Custom CSS -->
-    <style>
-        /* Agrega estilos personalizados aquí si es necesario */
-    </style>
+
+    
     <link rel="stylesheet" href="/css/registro.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-   
-          
-            
-        <section class="py-5 bg-light">
-            <div class="contenedor">
-                <div class="formulario">
-                <div class="row justify-content-center">
-                <div class="col-md-6">
-
-                      <div class="text-center mb-4">
-                <h2 >Registrate </h2>
-                
-                <hr class="my-4">
-            </div>
-                        <form id="registrationForm" method="post" action="/Login/RegisterAttempt" enctype="multipart/form-data">
-
-                        <div class="row g-2 needs-validation" novalidate>
-                            <label for="nombre" class="form-label">Nombre</label>
-                                <input type="text" id="nombre" name="nombre" class="form-control" required value="@ViewData["nombre"]"><i class="bi bi-person-badge"></i>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="row g-2 needs-validation" novalidate >
-                            <label for="edad" class="form-label">Edad:</label>
-                            <input type="number" id="edad" name="edad" class="form-control" required value="@ViewData["edad"]">
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="row g-2 needs-validation" novalidate>
-                            <label for="domicilio" class="form-label">Domicilio:</label>
-                            <input type="text" id="domicilio" name="domicilio" class="form-control" required value="@ViewData["domicilio"]">
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="row g-2 needs-validation" novalidate>
-                            <label for="username" class="form-label">Username:</label>
-                            <input type="text" id="username" name="username" class="form-control" required value="@ViewData["Username"]">
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="row g-2 needs-validation" novalidate>
-                            <label for="correo" class="form-label">Correo:</label>
-                            <input type="email" id="correo" name="correo" class="form-control" required value="@ViewData["correo"]">
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="row g-2 needs-validation" novalidate>
-                            <label for="password" class="form-label">Contraseña:</label>
-                            <input type="password" id="password" name="password" class="form-control" required value="@ViewData["password"]">
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="row g-2 needs-validation" novalidate>
-                            <label for="confirm_password" class="form-label">Confirmar contraseña:</label>
-                            <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
-                            <div class="valid-feedback"> 
-                                Looks good!
-                            </div>
-                        </div>
-                        <div id="liveAlertPlaceholder"></div>
-                        <br/>
-                        <button type="button" class="btn btn-primary" id="submitBtn">Registrar</button>
-                            <!-- Alerta de Registro completado -->
-                            <div class="alert alert-success mt-3" id="successAlert" role="alert">
-                                Registro completado.
-                            </div>
-                            <!-- Alerta de validación -->
-                            <div class="alert alert-danger mt-3" id="validationAlert" style="display: none;" role="alert">
-                                Por favor, completa todos los campos.
-                            </div>
-                        @if (ViewData.ContainsKey("Error"))
-                        {
-                            <div class="alert alert-danger mt-3" role="alert">
-                                @ViewData["Error"]
-                            </div>
-                            
-                        }
-
-                    </form>
+    <section class="py-5 bg-light">
+        <div class="contenedor">
+            <div class="formulario">
+                <div class="text-center mb-4">
+                    <h2>Registrate!</h2>
+                    <hr class="my-4">
                 </div>
+                <form id="registrationForm" method="post" action="/Login/RegisterAttempt" enctype="multipart/form-data">
+                    <div class="mb-3 needs-validation" novalidate>
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" required value="@ViewData["nombre"]">
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+                    <div class="mb-3 needs-validation" novalidate>
+                        <label for="edad" class="form-label">Edad</label>
+                        <input type="number" id="edad" name="edad" class="form-control" required value="@ViewData["edad"]">
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+                    <div class="mb-3 needs-validation" novalidate>
+                        <label for="domicilio" class="form-label">Domicilio:</label>
+                        <input type="text" id="domicilio" name="domicilio" class="form-control" required value="@ViewData["domicilio"]">
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+                   @*  <div class="mb-3 needs-validation" novalidate>
+                        <label for="canton" class="form-label">Cantón</label>
+                        <select id="canton" name="canton" class="form-select" required>
+                            <option value="">Selecciona un cantón</option>
+                            <option value="canton1">Cantón 1</option>
+                            <option value="canton2">Cantón 2</option>
+                            <!-- Agrega más opciones según sea necesario -->
+                        </select>
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+                    <div class="mb-3 needs-validation" novalidate>
+                        <label for="distrito" class="form-label">Distrito</label>
+                        <select id="distrito" name="distrito" class="form-select" required>
+                            <option value="">Selecciona un distrito</option>
+                            <option value="distrito1">Distrito 1</option>
+                            <option value="distrito2">Distrito 2</option>
+                            <!-- Agrega más opciones según sea necesario -->
+                        </select>
+                        <div class="valid-feedback">Looks good!</div>
+                    </div> 
+                    Futuros Dropsdown para datos quemados desde la base de datos! *@
+                    <div class="mb-3 needs-validation" novalidate>
+                        <label for="username" class="form-label">Nombre de Usuario</label>
+                        <input type="text" id="username" name="username" class="form-control" required value="@ViewData["username"]">
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+                    <div class="mb-3 needs-validation" novalidate>
+                        <label for="correo" class="form-label">Correo</label>
+                        <input type="email" id="correo" name="correo" class="form-control" required value="@ViewData["correo"]">
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+                    <div class="mb-3 needs-validation" novalidate>
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" id="password" name="password" class="form-control" required value="@ViewData["password"]">
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+                    <div class="mb-3 needs-validation" novalidate>
+                        <label for="confirm_password" class="form-label">Confirmar contraseña</label>
+                        <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+                    <div id="liveAlertPlaceholder"></div>
+                    <br />
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                        @* <button type="button" class="btn btn-secondary" id="cancelBtn">Cancelar</button> *@
+                    </div>
+                    <!-- Alerta de Registro completado -->
+                    <div class="alert alert-success mt-3" id="successAlert" role="alert">
+                        Registro completado.
+                    </div>
+                    <!-- Alerta de validación -->
+                    <div class="alert alert-danger mt-3" id="validationAlert" style="display: none;" role="alert">
+                        Por favor, completa todos los campos.
+                    </div>
+                    @if (ViewData.ContainsKey("Error"))
+                    {
+                        <div class="alert alert-danger mt-3" role="alert">
+                            @ViewData["Error"]
+                        </div>
+                    }
+                </form>
             </div>
         </div>
     </section>
     <!-- Bootstrap Bundle JS -->
     <script src="~/js/Registro.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('cancelBtn').addEventListener('click', function () {
+            window.location.href = 'Inicio';
+        });
+    </script>
 </body>
 </html>
+
+
